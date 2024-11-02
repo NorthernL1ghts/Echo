@@ -30,3 +30,42 @@
 *.exe
 *.out
 *.app
+*.exe
+
+# Backup files
+*~ 
+*.bak
+*.swp
+
+# Debug files
+*.dSYM
+*.pdb
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+
+# IDE directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio files
+.vs/
+
+# Log files
+*.log
+
+# Miscellaneous
+*.tmp
+*.temp
+
+# User-specific files
+*.user
+
+# Build directories
+bin/
+bin-int/
+build/
