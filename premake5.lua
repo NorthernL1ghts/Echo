@@ -1,6 +1,6 @@
 workspace "Echo"
     configurations { "Debug", "Dist", "Release" }
-    architecture "x64"  -- Ensure this is explicitly set
+    architecture "x64"
 
     outputdir = "%{cfg.buildcfg}/%{cfg.architecture}"
 
@@ -14,7 +14,15 @@ project "Echo"
     cppdialect "C++20"
 
     defines { "ECHO_PLATFORM_WINDOWS" }
+
+    -- Include path for spdlog
+    includedirs { "C:/Dev/Echo/Echo/vendor/spdlog/include" }  -- Use the specified path
+
     files { "Echo/src/Echo/Core/**.h", "Echo/src/Echo/Core/**.cpp" }
+
+    -- Enable UTF-8 compilation for Visual Studio
+    filter "action:vs*"
+        buildoptions { "/utf-8" }
 
     filter "configurations:Debug"
         defines { "DEBUG" }

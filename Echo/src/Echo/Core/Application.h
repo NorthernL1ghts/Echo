@@ -2,18 +2,15 @@
 
 namespace Echo {
 
-    class Application
-    {
+    class Application {
     public:
         Application();
         virtual ~Application();
-
         void Run();
 
     private:
-        bool m_Running; // Application running state
+        bool m_Running; // Member variable to keep track of running state
     };
 
-    Application* CreateApplication(); // Function prototype
-
-} // namespace Echo
+    extern Application* CreateApplication();
+}

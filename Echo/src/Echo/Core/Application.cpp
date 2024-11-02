@@ -4,12 +4,11 @@
 namespace Echo {
 
     Application::Application()
-        : m_Running(true) // Initialize running state to true
+        : m_Running(true)
     {
     }
 
     Application::~Application() {
-        // Cleanup code can be added here if necessary
     }
 
     void Application::Run() {
@@ -20,12 +19,11 @@ namespace Echo {
             std::cout << "Press 'q' to quit: ";
             std::cin >> input;
             if (input == 'q') {
-                m_Running = false; // Stop the application
+                m_Running = false;
             }
         }
     }
 
-    // Create and return a new Application instance
     Application* CreateApplication() {
         return new Application();
     }
