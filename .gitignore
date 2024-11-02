@@ -69,3 +69,6 @@ CMakeCache.txt
 bin/
 bin-int/
 build/
+
+# Directories
+Docs/
