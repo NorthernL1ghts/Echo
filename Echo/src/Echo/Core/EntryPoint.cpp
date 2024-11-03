@@ -10,7 +10,13 @@ int main(int argc, char** argv)
     int a = 5;
     ECHO_INFO("Hello! Var={0}", a);
 
-    Echo::Application* app = Echo::CreateApplication();
+    // Create and populate the command line arguments
+    Echo::ApplicationCommandLineArgs args;
+    args.Count = argc;
+    args.Args = argv;
+
+    // Create the application instance and pass the command line arguments
+    Echo::Application* app = Echo::CreateApplication(args);
     app->Run();
     delete app;
     return 0;

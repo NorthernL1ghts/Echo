@@ -1,35 +1,71 @@
 #include "Application.h"
 #include "Log.h"
 #include <iostream>
+#include <thread>
+#include <atomic>
+#include <conio.h>
 
 namespace Echo {
 
-    Application::Application() 
-        : m_Running(true) {}
+    Application* Application::s_Instance = nullptr;
+
+    Application::Application(const ApplicationSpecification& specification)
+        : m_Specification(specification)
+    {
+        s_Instance = this;
+
+        // Set working directory here
+        if (!m_Specification.WorkingDirectory.empty())
+            std::filesystem::current_path(m_Specification.WorkingDirectory);
+    }
 
     Application::~Application() {}
 
-    void Application::Run() 
+    void Application::Run()
     {
-        while (m_Running) 
+        while (m_Running)
         {
-            ECHO_CORE_TRACE("Application is running...");
+            ExecuteMainThreadQueue();
+            TerminateOnHotKey('q');
+        }
+    }
 
-            // This is just temporary, until I implement some form of HotKey termination sequence!
-            char input;
-            std::cout << "Press 'q' to quit: ";
-            std::cin >> input;
-
-            if (input == 'q') 
+    void Application::TerminateOnHotKey(char keycode)
+    {
+        if (_kbhit())
+        {
+            char input = _getch();
+            if (input == keycode || input == toupper(keycode))
             {
-                m_Running = false;
-                ECHO_CORE_INFO("Application is stopping...");
+                Close();
             }
         }
     }
 
-    Application* CreateApplication() 
+    void Application::Close()
     {
-        return new Application();
+        ECHO_INFO("Application is stopping...");
+        m_Running = false;
+    }
+
+    void Application::SubmitToMainThread(const std::function<void()>& function)
+    {
+        std::scoped_lock<std::mutex> lock(m_MainThreadQueueMutex);
+        m_MainThreadQueue.emplace_back(function);
+    }
+
+    void Application::ExecuteMainThreadQueue()
+    {
+        std::scoped_lock<std::mutex> lock(m_MainThreadQueueMutex);
+
+        for (auto& func : m_MainThreadQueue)
+            func();
+
+        m_MainThreadQueue.clear();
+    }
+
+    Application* CreateApplication(ApplicationCommandLineArgs args)
+    {
+        return new Application(ApplicationSpecification()); // Adjust to pass args if needed
     }
 }
