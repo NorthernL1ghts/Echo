@@ -67,56 +67,6 @@ namespace Echo {
         m_MainThreadQueue.clear();
     }
 
-    void Application::TestFileSystem()
-    {
-        const std::string baseDir = "C:/Dev/test_directory"; // Use forward slashes for cross-platform compatibility
-        const std::string testFile = baseDir + "/test_file.txt";
-
-        // Create directory
-        if (m_FileSystem.CreateDirectory(baseDir)) {
-            ECHO_INFO("Directory created: " + baseDir);
-        }
-        else {
-            ECHO_INFO("Failed to create directory: " + baseDir);
-        }
-
-        // Write to file
-        if (m_FileSystem.WriteFile(testFile, "Hello, Echo!")) {
-            ECHO_INFO("File written: " + testFile);
-        }
-        else {
-            ECHO_INFO("Failed to write file: " + testFile);
-        }
-
-        // Read from file
-        std::string content = m_FileSystem.ReadFile(testFile);
-        ECHO_INFO("Content read from file: " + content);
-
-        // List files in the directory
-        std::vector<std::string> files = m_FileSystem.ListFiles("C:/Dev");
-        ECHO_INFO("Files in directory C:/Dev:");
-        for (const auto& file : files) {
-            ECHO_INFO(" - " + file);
-        }
-
-        // Delete file
-        if (m_FileSystem.DeleteFile(testFile)) {
-            ECHO_INFO("File deleted: " + testFile);
-        }
-        else {
-            ECHO_INFO("Failed to delete file: " + testFile);
-        }
-
-        // Delete directory
-        if (std::filesystem::remove_all(baseDir)) { // Use remove_all to delete directory and contents
-            ECHO_INFO("Directory deleted: " + baseDir);
-        }
-        else {
-            ECHO_INFO("Failed to delete directory: " + baseDir);
-        }
-    }
-
-
     Application* CreateApplication(ApplicationCommandLineArgs args)
     {
         return new Application(ApplicationSpecification()); // Adjust to pass args if needed

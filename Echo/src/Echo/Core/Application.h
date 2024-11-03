@@ -48,9 +48,6 @@ namespace Echo {
 
         void SubmitToMainThread(const std::function<void()>& function);
         void TerminateOnHotKey(char keycode);
-
-        void TestFileSystem(); // New method to test FileSystem functionality
-
     private:
         void ExecuteMainThreadQueue();
 
