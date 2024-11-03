@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Core/Assert.h" // Include the Assert header for assertions
 #include <string>
 #include <functional>
 #include <vector>
@@ -15,6 +16,7 @@ namespace Echo {
 
         const char* operator[](int index) const
         {
+            ECHO_ASSERT(index >= 0 && index < Count, "Index out of bounds"); // Use assertion for index safety
             return Args[index];
         }
     };
@@ -33,9 +35,15 @@ namespace Echo {
 
         void Run();
         void Close();
-        static Application& Get() { return *s_Instance; }
+        static Application& Get() {
+            ECHO_CORE_ASSERT(s_Instance, "Application instance is null!"); // Ensure instance is valid
+            return *s_Instance;
+        }
 
-        const ApplicationSpecification& GetSpecification() const { return m_Specification; }
+        const ApplicationSpecification& GetSpecification() const {
+            return m_Specification;
+        }
+
         void SubmitToMainThread(const std::function<void()>& function);
         void TerminateOnHotKey(char keycode);
 
