@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../Core/Assert.h" // Include the Assert header for assertions
+#include "Assert.h"
+
 #include <string>
 #include <functional>
 #include <vector>

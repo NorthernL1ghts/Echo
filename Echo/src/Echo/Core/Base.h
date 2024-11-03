@@ -43,5 +43,5 @@ namespace Echo {
 	}
 }
 
-#include "../Core/Log.h"
-#include "../Core/Assert.h"
+#include "Log.h"
+#include "Assert.h"

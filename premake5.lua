@@ -16,9 +16,16 @@ project "Echo"
     defines { "ECHO_PLATFORM_WINDOWS" }
 
     -- Include path for spdlog
-    includedirs { "C:/Dev/Echo/Echo/vendor/spdlog/include" }  -- Use the specified path
+    includedirs { 
+        "C:/Dev/Echo/Echo/vendor/spdlog/include",  -- Use the specified path
+        "Echo/src"  -- Add this line to include the src directory
+    }
 
-    files { "Echo/src/Echo/Core/**.h", "Echo/src/Echo/Core/**.cpp" }
+    -- Include all files while maintaining directory structure
+    files { 
+        "Echo/src/**.h", 
+        "Echo/src/**.cpp" 
+    }
 
     -- Enable UTF-8 compilation for Visual Studio
     filter "action:vs*"

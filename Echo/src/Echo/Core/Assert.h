@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Core/Base.h"
-#include "../Core/Log.h"
+#include "Base.h"
+#include "Log.h"
 #include <filesystem>
 
 #ifdef ECHO_ENABLE_ASSERTS
