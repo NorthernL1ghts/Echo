@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Assert.h"
+#include "FileSystem.h" // Include FileSystem header
 
 #include <string>
 #include <functional>
@@ -48,6 +49,8 @@ namespace Echo {
         void SubmitToMainThread(const std::function<void()>& function);
         void TerminateOnHotKey(char keycode);
 
+        void TestFileSystem(); // New method to test FileSystem functionality
+
     private:
         void ExecuteMainThreadQueue();
 
@@ -59,6 +62,7 @@ namespace Echo {
 
     private:
         static Application* s_Instance;
+        FileSystem m_FileSystem; // Member variable for FileSystem
     };
 
     // To be defined in CLIENT
