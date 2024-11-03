@@ -17,9 +17,6 @@ namespace Echo {
         // Set working directory here
         if (!m_Specification.WorkingDirectory.empty())
             std::filesystem::current_path(m_Specification.WorkingDirectory);
-
-        // Example usage of FileSystem
-        TestFileSystem(); // Call the test method
     }
 
     Application::~Application() {}

@@ -15,9 +15,10 @@ project "Echo"
 
     defines { "ECHO_PLATFORM_WINDOWS" }
 
-    -- Include path for spdlog
+    -- Include paths for spdlog and glm
     includedirs { 
-        "C:/Dev/Echo/Echo/vendor/spdlog/include",  -- Use the specified path
+        "C:/Dev/Echo/Echo/vendor/spdlog/include",  -- Use the specified path for spdlog
+        "C:/Dev/Echo/Echo/vendor/glm",              -- Add this line to include the glm library
         "Echo/src"  -- Add this line to include the src directory
     }
 

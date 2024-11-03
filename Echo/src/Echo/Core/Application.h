@@ -37,6 +37,7 @@ namespace Echo {
 
         void Run();
         void Close();
+
         static Application& Get() {
             ECHO_CORE_ASSERT(s_Instance, "Application instance is null!"); // Ensure instance is valid
             return *s_Instance;
