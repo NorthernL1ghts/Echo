@@ -1,0 +1,33 @@
+{
+    "recommendations": [
+        // Icon Theme
+        "pkief.material-icon-theme",               // Material Icon Theme for folders and files
+
+        // Themes (optional)
+        "zhuangtongfa.material-theme",             // Material Theme (for alternative dark themes)
+        
+        // Font Ligatures (optional but recommended for Cascadia Code)
+        "tonsky.fira-code",                        // Fira Code Font Ligatures (if using Fira Code)
+        
+        // C++ Development
+        "ms-vscode.cpptools",                      // C/C++ IntelliSense, debugging, and code browsing
+        "jeff-hykin.better-cpp-syntax",            // Enhanced C++ syntax highlighting
+        "llvm-vs-code-extensions.vscode-clangd",   // Clangd for C++ for better performance in large projects
+
+        // Code Formatting and Linting
+        "esbenp.prettier-vscode",                  // Prettier for code formatting
+        "xaver.clang-format",                      // Clang-Format for C++ formatting
+        "streetsidesoftware.code-spell-checker",   // Spell Checker for comments and documentation
+
+        // Git and Version Control
+        "eamodio.gitlens",                         // GitLens for advanced Git capabilities
+
+        // Terminal and Productivity
+        "formulahendry.terminal",                  // Integrated terminal utilities
+        "gruntfuggly.todo-tree",                   // Highlights TODO comments in code
+
+        // Bracket and Code Visualization
+        "coenraads.bracket-pair-colorizer-2",      // Bracket Pair Colorizer for better readability
+        "visualstudioexptteam.vscodeintellicode"   // IntelliCode for AI-assisted IntelliSense
+    ]
+}
