@@ -1,7 +1,7 @@
 # Prerequisites
 *.d
 
-# Compiled Object files
+# Compiled Object Files
 *.slo
 *.lo
 *.o
@@ -11,16 +11,16 @@
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
+# Compiled Dynamic Libraries
 *.so
 *.dylib
 *.dll
 
-# Fortran module files
+# Fortran Module Files
 *.mod
 *.smod
 
-# Compiled Static libraries
+# Compiled Static Libraries
 *.lai
 *.la
 *.a
@@ -30,45 +30,60 @@
 *.exe
 *.out
 *.app
-*.exe
 
-# Backup files
-*~ 
+# Backup Files
+*~
 *.bak
 *.swp
 
-# Debug files
+# Debug Files
 *.dSYM
 *.pdb
+*.core
 
-# CMake files
+# CMake Files
 CMakeFiles/
 CMakeCache.txt
 *.cmake
+_deps/
 
-# IDE directories
+# Build Directories
+bin/
+bin-int/
+build/
+
+# Documentation
+Docs/
+
+# Log Files
+*.log
+
+# Miscellaneous Files
+*.tmp
+*.temp
+
+# User-Specific Files
+*.user
+
+# IDE-Specific Folders
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# Visual Studio files
+# Visual Studio Files
 .vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
 
-# Log files
-*.log
-
-# Miscellaneous
-*.tmp
-*.temp
-
-# User-specific files
+# IDE Project Files
+*.suo
+*.ncb
 *.user
-
-# Build directories
-bin/
-bin-int/
-build/
-
-# Directories
-Docs/
+*.opendb
+*.opensdf
+*.sdf
+*.sln.docstates
+*.rsuser
+*.vcxproj.user
