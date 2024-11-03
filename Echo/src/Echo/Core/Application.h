@@ -6,10 +6,11 @@ namespace Echo {
     public:
         Application();
         virtual ~Application();
+
         void Run();
 
     private:
-        bool m_Running; // Member variable to keep track of running state
+        bool m_Running;
     };
 
     extern Application* CreateApplication();
